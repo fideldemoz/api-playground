@@ -21,6 +21,28 @@
       background-color: #6A4EA6;
       text-align: center;
     }
+    .inps {
+      width: 420px;
+      margin: 0 auto;
+    }
+    .search input {
+      height: 35px;
+      border: 2px solid black;
+      outline: none;
+      margin: 10px auto;
+    }
+    .search input[type="text"] {
+      font-size: 18px;
+      padding: 4px 8px;
+      min-width: 300px;
+    }
+    .search input[type="submit"] {
+      width: 100px;
+      font-weight: 700;
+    }
+    .search input[type="submit"]:hover {
+      background-color: #BFAB9F;
+    }
     .container {
       display: grid;
       place-items: center;
@@ -34,6 +56,7 @@
     }
     footer a {
       font-weight: 700;
+      text-decoration: none;
     }
   </style>
 </head>
@@ -42,6 +65,12 @@
     <h1>Random Cat Gif</h1>
   </header>
   <main>
+    <form action="/" class="search">
+      <div class="inps">
+        <input type="text" placeholder="search gifs" name="term" id="s">
+        <input type="submit" name="find" id="b" value="search">
+      </div>
+    </form>
     <div class="container">
       <img src="" alt="Random Cat gif" class="pic">
     </div>
@@ -51,17 +80,29 @@
     <p>Powered by:</p>
       <p><a href="https://giphy.com/"><img src="./giphy.png" alt="Giphy logo" class="cr"></a></p>
   </footer>
-  <script>
-    const key = 'GBQYfALRuiuvBezj70srEpQULWzBkfVW'
-    const img = document.querySelector('img')
-    fetch(`https://api.giphy.com/v1/gifs/translate?api_key=${key}&s=cat`, {mode: 'cors'})
-      .then(function (res) {
-        return res.json()
-      })
-      .then(function (res) {
-        console.log(res)
-        img.src = res.data.images.original.url
-      })
-  </script>
+<script>
+const key = 'GBQYfALRuiuvBezj70srEpQULWzBkfVW'
+const img = document.querySelector('img')
+const form = document.querySelector('form')
+async function loadGif (term) {
+  let req
+  try {
+    if (term) {
+      req = await fetch(`https://api.giphy.com/v1/gifs/translate?api_key=${key}&s=${term}`, {mode: 'cors'})
+    }
+    const res = await req.json()
+    img.src = res.data.images.original.url
+  } catch(e) {
+    console.log('Erro:', e)
+  }
+}
+form.addEventListener('submit', (e) => {
+  e.preventDefault()
+  const term = document.querySelector('#s').value
+  loadGif(term)
+  e.target.reset()
+})
+window.addEventListener('load', loadGif('cat'))
+</script>
 </body>
 </html>
