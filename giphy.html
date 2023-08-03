@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Cat Gif</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    body {
+      min-height: 100vh;
+      width: 100%;
+      display: grid;
+      grid-template-rows: 60px 1fr 120px;
+      background-color: #EBF0F2;
+    }
+    header {
+      background-color: #6A4EA6;
+      text-align: center;
+    }
+    .container {
+      display: grid;
+      place-items: center;
+      margin-top: 1rem;
+    }
+    img {
+      min-width: 300px;
+    }
+    footer {
+      background-color: #BFAB9F;
+    }
+    footer a {
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Random Cat Gif</h1>
+  </header>
+  <main>
+    <div class="container">
+      <img src="" alt="Random Cat gif" class="pic">
+    </div>
+  </main>
+  <footer>
+    <p>Created by <a href="https://www.github.com/fideldemoz">Fideldemoz</a></p>
+    <p>Powered by:</p>
+      <p><a href="https://giphy.com/"><img src="./giphy.png" alt="Giphy logo" class="cr"></a></p>
+  </footer>
+  <script>
+    const key = 'GBQYfALRuiuvBezj70srEpQULWzBkfVW'
+    const img = document.querySelector('img')
+    fetch(`https://api.giphy.com/v1/gifs/translate?api_key=${key}&s=cat`, {mode: 'cors'})
+      .then(function (res) {
+        return res.json()
+      })
+      .then(function (res) {
+        console.log(res)
+        img.src = res.data.images.original.url
+      })
+  </script>
+</body>
+</html>
