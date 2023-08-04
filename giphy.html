@@ -46,10 +46,7 @@
     .container {
       display: grid;
       place-items: center;
-      margin-top: 1rem;
-    }
-    img {
-      min-width: 300px;
+      margin: 1rem 0;
     }
     footer {
       background-color: #BFAB9F;
@@ -88,11 +85,11 @@ async function loadGif (term) {
   let req
   try {
     if (term) {
-      req = await fetch(`https://api.giphy.com/v1/gifs/translate?api_key=${key}&s=${term}`, {mode: 'cors'})
+      req = await fetch(`https://api.giphy.com/v1/gifs/translate?api_key=${key}&s=${term}`, { mode: 'cors' })
     }
     const res = await req.json()
     img.src = res.data.images.original.url
-  } catch(e) {
+  } catch (e) {
     console.log('Erro:', e)
   }
 }
