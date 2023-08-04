@@ -1,3 +1,7 @@
-- create layout
-- add icons
-- add search functionality
+- create api requests
+  - getWeather(city)
+  - weatherSummary()
+  - weatherDetails()
+  - weatherWeek()
+  - weatherHourly()
+- create dom skeletom
