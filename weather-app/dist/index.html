@@ -4,9 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script src="bundle.js"></script>
+  <script src="bundle.js" defer></script>
 </head>
 <body>
-  
+  <header>
+    <h2>Weather Forecast</h2>
+  </header>
+  <main>
+    <form action="/" class="searchDiv">
+      <input type="text" placeholder="Search Location" name="query" id="search">
+      <input type="submit" name="search" value="Search" id="submit">
+    </form>
+    <div class="summary">
+      <ul>
+        <li><img src="" alt="" class="city"><h2 class="city"></h2></li>
+        <li><img src="" alt="" class="date"><span class="date"></span></li>
+        <li><img src="" alt="" class="time"><span class="time"></span></li>
+        <li><span class="condition"></span></li>
+        <li><img src="" alt="" class="condition"></li>
+      </ul>
+    </div>
+    <div class="details"></div>
+    <div class="forecast"></div>
+  </main>
+  <footer>
+    <p>Created by <span><a href="/">Fideldemoz</a></span></p>
+    Powered by <a href="https://www.weatherapi.com/" title="Free Weather API">WeatherAPI.com</a>
+  </footer>
 </body>
 </html>

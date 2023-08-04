@@ -11,7 +11,7 @@ class Weather {
       const response = await this.current()
       const city = response.location.name
       const condition = response.current.condition.text
-      const icon = response.current.condition.icon
+      const icon = `./icons${response.current.condition.icon.slice(34)}`
       const date = new Date(response.location.localtime)
       const localtime = format(date, 'HH:mm')
       const localdate = format(date, 'eeee, MMM do yy')
@@ -68,6 +68,4 @@ class Weather {
   }
 }
 
-console.log(new Weather('Molocue').summary())
-console.log(new Weather('Maputo').details())
-console.log(new Weather('Maputo').forecast())
+export { Weather }
