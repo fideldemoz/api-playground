@@ -11,7 +11,7 @@ class Weather {
       const response = await this.current()
       const city = response.location.name
       const condition = response.current.condition.text
-      const icon = `../src/icons${response.current.condition.icon.slice(34)}`
+      const icon = response.current.condition.icon
       const date = new Date(response.location.localtime)
       const localtime = format(date, 'HH:mm')
       const localdate = format(date, 'eeee, MMM do yy')
