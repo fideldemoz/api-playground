@@ -11,13 +11,14 @@ class Weather {
       const response = await this.current()
       const city = response.location.name
       const condition = response.current.condition.text
-      const icon = `./icons${response.current.condition.icon.slice(34)}`
+      const icon = `../src/icons${response.current.condition.icon.slice(34)}`
       const date = new Date(response.location.localtime)
       const localtime = format(date, 'HH:mm')
       const localdate = format(date, 'eeee, MMM do yy')
-      const temp = response.current.temp_c
+      const temp = `${response.current.temp_c} &deg;C`
+      const day = response.current.is_day
 
-      return { city, condition, icon, temp, localtime, localdate }
+      return { day, city, condition, icon, temp, localtime, localdate }
     } catch (e) {
       console.log('There was a problem. \nFull error log:\n', e)
     }
@@ -26,10 +27,10 @@ class Weather {
   async details () {
     try {
       const response = await this.current()
-      const cloud = response.current.cloud
-      const feel = response.current.feelslike_c
-      const humidity = response.current.humidity
-      const wind = response.current.wind_kph
+      const cloud = `${response.current.cloud} &percnt;`
+      const feel = `${response.current.feelslike_c} &deg;C`
+      const humidity = `${response.current.humidity} &percnt;`
+      const wind = `${response.current.wind_kph} km/h`
 
       return { cloud, feel, humidity, wind }
     } catch (e) {

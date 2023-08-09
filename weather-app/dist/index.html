@@ -9,23 +9,30 @@
 <body>
   <header>
     <h2>Weather Forecast</h2>
-  </header>
-  <main>
     <form action="/" class="searchDiv">
       <input type="text" placeholder="Search Location" name="query" id="search">
-      <input type="submit" name="search" value="Search" id="submit">
+      <input type="submit" name="search" value="" id="submit">
     </form>
+  </header>
+  <main>
     <div class="summary">
-      <ul>
-        <li><img src="" alt="" class="city"><h2 class="city"></h2></li>
-        <li><img src="" alt="" class="date"><span class="date"></span></li>
-        <li><img src="" alt="" class="time"><span class="time"></span></li>
-        <li><span class="condition"></span></li>
-        <li><img src="" alt="" class="condition"></li>
+      <ul class="summary">
+        <li><h1 class="salut" style="color:black"></h1></li>
+        <li><img src="../src/assets/location.svg" alt="" class="city"><h2 class="city"></h2></li>
+        <li><img src="../src/assets/calendar.svg" alt="" class="date"><span class="date"></span></li>
+        <li><img src="../src/assets/clock.svg" alt="" class="time"><span class="time"></span></li>
+        <li><img src="../src/assets/thermostat.svg" class="temp"><h2 class="temp"></h2></li>
       </ul>
     </div>
-    <div class="details"></div>
-    <div class="forecast"></div>
+    <div class="details">
+      <ul class="desc">
+        <li><h1 class="condition"></h1></li>
+        <li><img src="" alt="" class="condition"></li>
+        <li><img src="../src/assets/cloud.svg" alt="" class="cloud"><span class="cloud"></span></li>
+        <li><img src="../src/assets/humidity.svg" alt="" class="humidity"><span class="humidity"></span></li>
+        <li><img src="../src/assets/wind.svg" alt="" class="wind"><span class="wind"></span></li>
+      </ul>
+    </div>
   </main>
   <footer>
     <p>Created by <span><a href="/">Fideldemoz</a></span></p>
